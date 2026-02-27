@@ -153,6 +153,67 @@
         </div>
     </section>
 
+    <section id="gallery" class="py-24 bg-mpig-dark relative overflow-hidden border-t border-white/5">
+    <div class="container mx-auto px-6 relative z-10">
+        
+        <div class="text-center mb-16" data-aos="fade-down">
+            <span class="text-mpig-gold font-bold tracking-[0.4em] uppercase text-[10px] block mb-4">Captured Momentum</span>
+            <h2 class="font-display text-4xl md:text-6xl text-white uppercase">THE <span class="text-mpig-red">COLONY</span> FILES</h2>
+            <div class="flex justify-center gap-4 mt-8 flex-wrap">
+                <button onclick="filterGallery('all')" class="gallery-filter active px-6 py-2 rounded-full border border-mpig-gold/30 text-xs font-bold uppercase tracking-widest hover:bg-mpig-gold hover:text-black transition-all">All Intel</button>
+                <button onclick="filterGallery('meme')" class="gallery-filter px-6 py-2 rounded-full border border-white/10 text-xs font-bold uppercase tracking-widest hover:border-mpig-red hover:text-mpig-red transition-all">Memes</button>
+                <button onclick="filterGallery('alpha')" class="gallery-filter px-6 py-2 rounded-full border border-white/10 text-xs font-bold uppercase tracking-widest hover:border-mpig-gold hover:text-mpig-gold transition-all">Alpha</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="masonry-grid">
+            
+            <div class="gallery-item alpha group relative overflow-hidden rounded-2xl smoke-glass aspect-square" data-aos="fade-up">
+                <img src="main.png" alt="MPIG Hero" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 cursor-pointer" onclick="openLightbox(this.src)">
+                <div class="absolute inset-0 bg-gradient-to-t from-mpig-red/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex flex-col justify-end p-6">
+                    <p class="font-display text-xl text-white tracking-widest">PHASE 0: INITIATION</p>
+                </div>
+            </div>
+
+            <div class="gallery-item meme group relative overflow-hidden rounded-2xl smoke-glass aspect-video lg:aspect-square" data-aos="fade-up" data-aos-delay="100">
+                <img src="meme-1.png" alt="Meme 1" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 cursor-pointer" onclick="openLightbox(this.src)">
+                <div class="absolute inset-0 bg-gradient-to-t from-mpig-gold/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex flex-col justify-end p-6">
+                    <p class="font-display text-xl text-black tracking-widest">SMOKE THE DIP</p>
+                </div>
+            </div>
+
+            <div class="gallery-item alpha group relative overflow-hidden rounded-2xl smoke-glass aspect-square" data-aos="fade-up" data-aos-delay="200">
+                <img src="mpig-king.png" alt="MPIG King" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 cursor-pointer" onclick="openLightbox(this.src)">
+                <div class="absolute inset-0 bg-gradient-to-t from-mpig-red/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex flex-col justify-end p-6">
+                    <p class="font-display text-xl text-white tracking-widest">CONVICTION TESTED</p>
+                </div>
+            </div>
+
+            <div class="gallery-item meme group relative overflow-hidden rounded-2xl smoke-glass aspect-square" data-aos="fade-up">
+                <img src="meme-2.png" alt="Meme 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 cursor-pointer" onclick="openLightbox(this.src)">
+                <div class="absolute inset-0 bg-gradient-to-t from-mpig-gold/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex flex-col justify-end p-6">
+                    <p class="font-display text-xl text-black tracking-widest">RIDE THE PUMP</p>
+                </div>
+            </div>
+
+            <div class="gallery-item alpha group relative overflow-hidden rounded-2xl smoke-glass aspect-video lg:aspect-square" data-aos="fade-up" data-aos-delay="100">
+                <img src="mpi-sol.png" alt="Solana" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 cursor-pointer" onclick="openLightbox(this.src)">
+                <div class="absolute inset-0 bg-gradient-to-t from-mpig-red/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex flex-col justify-end p-6">
+                    <p class="font-display text-xl text-white tracking-widest">SOLANA SPEED</p>
+                </div>
+            </div>
+
+            <div class="gallery-item meme group relative overflow-hidden rounded-2xl smoke-glass aspect-square" data-aos="fade-up" data-aos-delay="200">
+                <img src="meme-6.png" alt="Meme 6" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 cursor-pointer" onclick="openLightbox(this.src)">
+                <div class="absolute inset-0 bg-gradient-to-t from-mpig-gold/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex flex-col justify-end p-6">
+                    <p class="font-display text-xl text-black tracking-widest">IGNITING SOON</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>  
+
     <section id="arcade" class="py-20 px-6 bg-mpig-red/5 border-y border-white/5">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12">
@@ -221,7 +282,55 @@
         </div>
     </footer>
 
+    <div id="lightbox" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center p-4 backdrop-blur-xl" onclick="closeLightbox()">
+    <button class="absolute top-10 right-10 text-white text-4xl hover:text-mpig-gold transition">&times;</button>
+    <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] rounded-xl border border-white/10 shadow-[0_0_80px_rgba(196,30,58,0.3)]">
+</div>
+
     <script>
+
+        // --- GALLERY FILTER LOGIC ---
+function filterGallery(category) {
+    const items = document.querySelectorAll('.gallery-item');
+    const buttons = document.querySelectorAll('.gallery-filter');
+
+    // Update active button state
+    buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-mpig-gold', 'text-black');
+        if(btn.innerText.toLowerCase().includes(category)) {
+            btn.classList.add('active', 'bg-mpig-gold', 'text-black');
+        } else if (category === 'all' && btn.innerText.toLowerCase().includes('all')) {
+            btn.classList.add('active', 'bg-mpig-gold', 'text-black');
+        }
+    });
+
+    // Filter items with GSAP animation
+    items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+            gsap.to(item, { scale: 1, opacity: 1, duration: 0.4, display: 'block', ease: "power2.out" });
+        } else {
+            gsap.to(item, { scale: 0.8, opacity: 0, duration: 0.4, display: 'none', ease: "power2.in" });
+        }
+    });
+}
+
+// --- LIGHTBOX LOGIC ---
+function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.src = src;
+    lb.classList.remove('hidden');
+    lb.classList.add('flex');
+    document.body.style.overflow = 'hidden'; // Lock scroll
+}
+
+function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('hidden');
+    lb.classList.remove('flex');
+    document.body.style.overflow = ''; // Unlock scroll
+}
+
         // Custom Cursor only on Desktop
         if (window.innerWidth >= 1024) {
             const dot = document.getElementById('cursor-dot');
