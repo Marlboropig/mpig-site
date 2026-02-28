@@ -30,32 +30,32 @@
         </div>
     </div>
 
-<nav class="nav" id="main-nav">
-    <div class="nav-inner">
-        <a href="index.html" class="brand">
-            <div class="brand-dot"></div>
-            $MPIG
-        </a>
+    <nav class="nav" id="main-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <div class="brand-dot"></div>
+                $MPIG
+            </a>
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">Mission</a>
-            <a href="community.html">The Herd</a>
-            <a href="roadmap.html">Roadmap</a>
-            <a href="game.html" style="color: var(--gold)">Arcade</a>
-        </div>
-
-        <div class="flex items-center gap-4">
-            <div class="nav-cta hidden lg:flex">
-                <a href="https://dexscreener.com/solana/7nxKLuVFP9VB9t5Kxw8DdF4JtssngQA2qmfgCVuvYgXv" target="_blank" class="btn btn--primary" style="min-height: 40px; padding: 0 20px; font-size: 12px;">BUY NOW</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">Mission</a>
+                <a href="community.html">The Herd</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="game.html" style="color: var(--gold)">Arcade</a>
             </div>
-            
-            <button class="mobile-toggle" id="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </button>
+
+            <div class="flex items-center gap-4">
+                <div class="nav-cta hidden lg:flex">
+                    <a href="https://dexscreener.com/solana/7nxKLuVFP9VB9t5Kxw8DdF4JtssngQA2qmfgCVuvYgXv" target="_blank" class="btn btn--primary" style="min-height: 40px; padding: 0 20px; font-size: 12px;">BUY NOW</a>
+                </div>
+                
+                <button class="mobile-toggle" id="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <section class="hero hero--game">
         <img class="hero__bg" src="images/game.png" alt="MPIG Game Universe">
@@ -86,19 +86,19 @@
                 </p>
 
                 <div class="hero__buttons">
-                    <a href="#shooter-game" class="btn btn--primary">
-                        <i class="fa-solid fa-gamepad"></i> Launch Camp
-                    </a>
-                    <a href="community.html" class="btn btn--secondary">
+                    <div class="btn btn--primary" style="opacity: 0.7; cursor: default;">
+                        <i class="fa-solid fa-lock"></i> COMING SOON
+                    </div>
+                    <!-- <a href="community.html" class="btn btn--secondary">
                         View Rankings
-                    </a>
+                    </a> -->
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- <section id="shooter-game" class="section" style="background: var(--bg); border-top: 1px solid var(--border);">
+    <!-- <section id="shooter-game" class="section" style="background: var(--bg); border-top: 1px solid var(--border); padding: 80px 0;">
         <div class="container">
             <div class="game-terminal-wrap">
                 <div class="terminal-header">
@@ -108,41 +108,43 @@
                     <div class="terminal-title">BOUNTY SHOOTER V1.0</div>
                 </div>
                 
-                <div class="game-canvas-container" style="aspect-ratio: 16/9; background: #000; position: relative; overflow: hidden;">
-                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.8);">
-                        <p class="footer-muted" style="letter-spacing: 2px;">INITIALIZING COMBAT PROTOCOL...</p>
+                <div class="game-canvas-container" style="aspect-ratio: 16/9; background: #000; position: relative; overflow: hidden; border-radius: 0 0 14px 14px;">
+                    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(216, 178, 92, 0.1) 0%, rgba(0,0,0,0.95) 100%);">
+                        <i class="fa-solid fa-screwdriver-wrench text-gold" style="font-size: 48px; margin-bottom: 20px; opacity: 0.8;"></i>
+                        <h2 style="font-family: 'Space Grotesk'; color: #fff; letter-spacing: 4px; font-size: 24px; margin-bottom: 8px;">COMING SOON</h2>
+                        <p class="footer-muted" style="letter-spacing: 2px; font-size: 12px;">INITIALIZING COMBAT PROTOCOL...</p>
                     </div>
                 </div>
             </div>
         </div>
     </section> -->
 
-<footer class="footer-strip">
-    <div class="container footer-inner">
-        <a href="index.html" class="brand">
-            $MPIG
-        </a>
+    <footer class="footer-strip">
+        <div class="container footer-inner">
+            <a href="index.html" class="brand">
+                $MPIG
+            </a>
 
-        <div class="footer-links-strip">
-            <div class="strip-ca" onclick="copyCA()">
-                <i class="fa-solid fa-scroll text-gold"></i>
-                <span class="ca-mini">CA: Ff7F9...xtpump</span>
+            <div class="footer-links-strip">
+                <div class="strip-ca" onclick="copyCA()">
+                    <i class="fa-solid fa-scroll text-gold"></i>
+                    <span class="ca-mini">CA: Ff7F9...xtpump</span>
+                </div>
+                
+                <a href="https://t.me/Marlboropig1" target="_blank" class="strip-link">
+                    <i class="fa-brands fa-telegram"></i> <span>TELEGRAM</span>
+                </a>
+                
+                <a href="https://dexscreener.com/solana/7nxKLuVFP9VB9t5Kxw8DdF4JtssngQA2qmfgCVuvYgXv" target="_blank" class="strip-link">
+                    <i class="fa-solid fa-chart-line"></i> <span>CHART</span>
+                </a>
             </div>
-            
-            <a href="https://t.me/Marlboropig1" target="_blank" class="strip-link">
-                <i class="fa-brands fa-telegram"></i> <span>TELEGRAM</span>
-            </a>
-            
-            <a href="https://dexscreener.com/solana/7nxKLuVFP9VB9t5Kxw8DdF4JtssngQA2qmfgCVuvYgXv" target="_blank" class="strip-link">
-                <i class="fa-solid fa-chart-line"></i> <span>CHART</span>
-            </a>
-        </div>
 
-        <div class="footer-copyright hidden md:block">
-            © 2026 $MPIG
+            <div class="footer-copyright hidden md:block">
+                © 2026 $MPIG
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
         // Navbar scroll logic
@@ -166,7 +168,6 @@
             if (isOpening) {
                 icon.className = "fa-solid fa-xmark";
                 document.body.style.overflow = 'hidden';
-                // Delay listener to prevent immediate closing
                 setTimeout(() => {
                     document.addEventListener('click', closeOnOutsideClick);
                 }, 10);
@@ -180,7 +181,6 @@
             const menuBtn = document.getElementById('menu-btn');
             const menuLinks = document.querySelector('.mobile-nav-links');
             
-            // Close if click is NOT on the links and NOT on the button itself
             if (!menuLinks.contains(e.target) && !menuBtn.contains(e.target)) {
                 toggleMenu();
             }
