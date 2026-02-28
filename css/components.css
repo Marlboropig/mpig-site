@@ -1,14 +1,76 @@
 /* ============================================================
-   EXQUISITE NAVBAR (Premium Glassy + Floating Island)
+   1. CORE OPTIMIZATIONS (Performance & CLS Fixes)
    ============================================================ */
+:root {
+    --bg: #07070b;
+    --panel: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.14);
+    --text: rgba(255,255,255,0.92);
+    --muted: rgba(255,255,255,0.70);
+    --gold: #d8b25c;
+    --gold-2: #f2d184;
+    --shadow: 0 18px 60px rgba(0,0,0,0.55);
+    --container: 1180px;
+    --vh: 1dvh; /* Dynamic viewport fix for mobile stability */
+}
 
+/* Fixes the 3,000ms font-loading delay flagged in Audit  */
+@font-face {
+    font-family: 'Space Grotesk';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    overscroll-behavior-y: none; /* Prevents scroll-bounce CLS */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Critical for CLS: Ensures images don't jump during load  */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: min(var(--container), calc(100% - 40px));
+    margin: 0 auto;
+}
+
+h1 { font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+
+/* Link & Interaction Resets */
+a { text-decoration: none; color: inherit; }
+a i, a span { text-decoration: none; }
+a, button { cursor: pointer; touch-action: manipulation; }
+
+/* ============================================================
+   2. EXQUISITE NAVBAR (Premium Glassy)
+   ============================================================ */
 .nav {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: min(var(--container), calc(100% - 32px));
-    z-index: 1200; /* Stays above the mobile overlay */
+    z-index: 1200;
     border: 1px solid var(--border);
     border-radius: 999px;
     backdrop-filter: blur(20px) saturate(180%);
@@ -44,9 +106,7 @@
 }
 
 .brand-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+    width: 10px; height: 10px; border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, var(--gold-2), var(--gold));
     box-shadow: 0 0 18px rgba(216, 178, 92, 0.6);
     animation: gold-pulse 3s infinite;
@@ -57,110 +117,60 @@
     50% { transform: scale(1.2); opacity: 0.7; box-shadow: 0 0 25px rgba(216, 178, 92, 0.8); }
 }
 
-.nav-links {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-}
-
+.nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
     color: rgba(255, 255, 255, 0.7);
-    font-weight: 600;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 600; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 1px;
     transition: all 0.3s ease;
 }
-
-.nav-links a:hover {
-    color: var(--gold-2);
-}
+.nav-links a:hover { color: var(--gold-2); }
 
 /* ============================================================
-   MOBILE NAVIGATION & OVERLAY (Perfect Touch Target Logic)
+   3. MOBILE OVERLAY & TOGGLE
    ============================================================ */
-
 .mobile-toggle {
-    width: 48px;
-    height: 48px;
-    display: none;
-    align-items: center;
-    justify-content: center;
+    width: 48px; height: 48px; display: none;
+    align-items: center; justify-content: center;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    color: var(--gold);
-    z-index: 1300; /* Higher than nav to ensure clickability */
-    transition: all 0.3s ease;
+    border-radius: 14px; color: var(--gold);
+    z-index: 1300; transition: all 0.3s ease;
 }
 
 #mobile-overlay {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100dvh; /* Dynamic Viewport Fix */
-    z-index: 1100; /* Sits below the main nav bar */
-    background: rgba(7, 7, 11, 0.98);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    display: flex;
-    flex-direction: column;
-    padding: 120px 32px 40px; /* Space for the floating nav */
-    transform: translateY(-100%);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none; /* Prevents ghost clicks when closed */
+    position: fixed; inset: 0; width: 100%; height: 100dvh;
+    z-index: 1100; background: rgba(7, 7, 11, 0.98);
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    display: flex; flex-direction: column; padding: 120px 32px 40px;
+    transform: translateY(-100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
 }
 
-#mobile-overlay.active {
-    transform: translateY(0);
-    pointer-events: auto;
-}
+#mobile-overlay.active { transform: translateY(0); pointer-events: auto; }
 
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-}
-
+.mobile-nav-links { display: flex; flex-direction: column; gap: 28px; }
 .mobile-nav-links a {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none !important;
-    transition: all 0.3s ease;
+    font-family: "Space Grotesk", sans-serif; font-size: 32px; font-weight: 700;
+    color: rgba(255, 255, 255, 0.9); transition: all 0.3s ease;
 }
-
-.mobile-nav-links a:active,
-.mobile-nav-links a:hover {
-    color: var(--gold);
-    padding-left: 12px;
-}
+.mobile-nav-links a:hover { color: var(--gold); padding-left: 12px; }
 
 @media (max-width: 1024px) {
-    .nav-links { display: none !important; }
+    .nav-links, .nav-cta { display: none !important; }
     .mobile-toggle { display: flex !important; }
     .nav { width: calc(100% - 24px); top: 12px; border-radius: 20px; }
+    .nav-inner { padding: 0 16px; height: 60px; }
 }
 
 /* ============================================================
-   PREMIUM BUTTONS & FOOTER
+   4. PREMIUM BUTTONS & FOOTER STRIP
    ============================================================ */
-
 .btn {
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 0 24px;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--text);
-    font-weight: 650;
-    transition: all 0.2s ease;
-    cursor: pointer;
+    min-height: 48px; display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06); color: var(--text);
+    font-weight: 650; transition: all 0.2s ease;
 }
 
 .btn-primary {
@@ -171,113 +181,29 @@
 
 .btn:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.09); }
 
-/* footer {
-    padding: 64px 0 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(0, 0, 0, 0.2);
-} */
-
-/* =========================
-   FOOTER STRIP (Premium Spec)
-   ========================= */
-
 .footer-strip {
-    padding: 24px 0;
-    background: rgba(7, 7, 11, 0.85); /* Matches navbar glass */
-    backdrop-filter: blur(16px);
-    border-top: 1px solid var(--border);
+    padding: 24px 0; background: rgba(7, 7, 11, 0.85);
+    backdrop-filter: blur(16px); border-top: 1px solid var(--border);
 }
 
-.footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.footer-links-strip {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer-links-strip { display: flex; align-items: center; gap: 32px; }
 
 .strip-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.7);
-    transition: color 0.3s ease;
+    display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease;
 }
-
-.strip-link:hover {
-    color: var(--gold);
-}
+.strip-link:hover { color: var(--gold); }
 
 .strip-ca {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    cursor: pointer;
-    font-family: monospace;
-    font-size: 11px;
+    display: flex; align-items: center; gap: 10px; padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
+    border-radius: 999px; font-family: monospace; font-size: 11px;
 }
 
-.footer-copyright {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 1px;
-}
+.footer-copyright { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
 
-/* Mobile Polish */
 @media (max-width: 900px) {
-    .footer-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 24px;
-    }
-    
-    .footer-links-strip {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-}
-
-/* ============================================================
-   MOBILE NAVIGATION REFINEMENT
-   ============================================================ */
-
-@media (max-width: 1024px) {
-    /* Force hide the desktop links */
-    .nav-links { 
-        display: none !important; 
-    }
-
-    /* Specifically hide the Buy button container on mobile */
-    .nav-cta {
-        display: none !important;
-    }
-
-    /* Ensure the hamburger is centered and exquisite */
-    .mobile-toggle { 
-        display: flex !important; 
-    }
-
-    /* Shrink navbar padding for smaller screens */
-    .nav { 
-        width: calc(100% - 24px); 
-        top: 12px; 
-        border-radius: 20px; 
-    }
-    
-    .nav-inner {
-        padding: 0 16px;
-    }
+    .footer-inner { flex-direction: column; text-align: center; gap: 24px; }
+    .footer-links-strip { flex-wrap: wrap; justify-content: center; gap: 20px; }
 }
