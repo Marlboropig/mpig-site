@@ -1,0 +1,283 @@
+/* ============================================================
+   EXQUISITE NAVBAR (Premium Glassy + Floating Island)
+   ============================================================ */
+
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(var(--container), calc(100% - 32px));
+    z-index: 1200; /* Stays above the mobile overlay */
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(7, 7, 11, 0.65);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav.scrolled {
+    top: 10px;
+    background: rgba(7, 7, 11, 0.85);
+    border-color: rgba(216, 178, 92, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav-inner {
+    height: 64px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    color: #fff;
+}
+
+.brand-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--gold-2), var(--gold));
+    box-shadow: 0 0 18px rgba(216, 178, 92, 0.6);
+    animation: gold-pulse 3s infinite;
+}
+
+@keyframes gold-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; box-shadow: 0 0 25px rgba(216, 178, 92, 0.8); }
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold-2);
+}
+
+/* ============================================================
+   MOBILE NAVIGATION & OVERLAY (Perfect Touch Target Logic)
+   ============================================================ */
+
+.mobile-toggle {
+    width: 48px;
+    height: 48px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--gold);
+    z-index: 1300; /* Higher than nav to ensure clickability */
+    transition: all 0.3s ease;
+}
+
+#mobile-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh; /* Dynamic Viewport Fix */
+    z-index: 1100; /* Sits below the main nav bar */
+    background: rgba(7, 7, 11, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    display: flex;
+    flex-direction: column;
+    padding: 120px 32px 40px; /* Space for the floating nav */
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none; /* Prevents ghost clicks when closed */
+}
+
+#mobile-overlay.active {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.mobile-nav-links a {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-links a:active,
+.mobile-nav-links a:hover {
+    color: var(--gold);
+    padding-left: 12px;
+}
+
+@media (max-width: 1024px) {
+    .nav-links { display: none !important; }
+    .mobile-toggle { display: flex !important; }
+    .nav { width: calc(100% - 24px); top: 12px; border-radius: 20px; }
+}
+
+/* ============================================================
+   PREMIUM BUTTONS & FOOTER
+   ============================================================ */
+
+.btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 24px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    font-weight: 650;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    border-color: rgba(216, 178, 92, 0.55);
+    background: linear-gradient(180deg, rgba(216, 178, 92, 0.20), rgba(216, 178, 92, 0.10));
+    color: var(--gold-2);
+}
+
+.btn:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.09); }
+
+/* footer {
+    padding: 64px 0 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.2);
+} */
+
+/* =========================
+   FOOTER STRIP (Premium Spec)
+   ========================= */
+
+.footer-strip {
+    padding: 24px 0;
+    background: rgba(7, 7, 11, 0.85); /* Matches navbar glass */
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-links-strip {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.strip-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.strip-link:hover {
+    color: var(--gold);
+}
+
+.strip-ca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.footer-copyright {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
+
+/* Mobile Polish */
+@media (max-width: 900px) {
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+    
+    .footer-links-strip {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+/* ============================================================
+   MOBILE NAVIGATION REFINEMENT
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    /* Force hide the desktop links */
+    .nav-links { 
+        display: none !important; 
+    }
+
+    /* Specifically hide the Buy button container on mobile */
+    .nav-cta {
+        display: none !important;
+    }
+
+    /* Ensure the hamburger is centered and exquisite */
+    .mobile-toggle { 
+        display: flex !important; 
+    }
+
+    /* Shrink navbar padding for smaller screens */
+    .nav { 
+        width: calc(100% - 24px); 
+        top: 12px; 
+        border-radius: 20px; 
+    }
+    
+    .nav-inner {
+        padding: 0 16px;
+    }
+}

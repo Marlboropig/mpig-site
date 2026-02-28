@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MARLBORO PIG | Smoke the Dips</title>
+    <title>Arcade | The $MPIG Training Camp</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
+<body class="bg-[#07070b]">
 
     <div id="mobile-overlay">
         <button onclick="toggleMenu()" class="absolute top-8 right-8 text-white text-3xl md:hidden" style="background:none; border:none; cursor: pointer;">
@@ -57,45 +57,65 @@
     </div>
 </nav>
 
-    <section class="hero">
-        <img class="hero__bg" src="images/hero-16x9-mpig.png" alt="Marlboro Pig Hero" loading="eager">
+    <section class="hero hero--game">
+        <img class="hero__bg" src="images/game.png" alt="MPIG Game Universe">
 
         <div class="hero__inner">
-            <div class="hero__content">
-                <div class="hidden md:block mb-6">
-                    <div class="badge" style="display: inline-flex; gap: 10px; align-items: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); font-size: 13px; color: rgba(255,255,255,0.82);">
-                        <div class="brand-dot"></div>
-                        <span class="uppercase tracking-[0.3em] font-bold">Pressure is building</span>
-                    </div>
-                </div>
-
-                <h1 class="hero__title">
-                    The Future of Meme <br> 
-                    Utility Starts <span style="color: var(--gold); font-weight: 800;">Here.</span>
-                </h1>
+            <div class="hero__content" style="text-align: left; margin-inline: 0; max-width: 700px;">
                 
-                <p class="hero__subtitle">
-                    $MPIG is building more than hype. We're building community, <br class="hidden md:block"> 
-                    game mechanics, and long-term Web3 presence.
+                <h1 class="hero__title">The <span style="color: var(--gold);">MPIG</span> Game</h1>
+                
+                <ul class="game-feature-list">
+                    <li>
+                        <div class="bullet-gold"></div>
+                        <span>Players compete for leaderboard dominance</span>
+                    </li>
+                    <li>
+                        <div class="bullet-gold"></div>
+                        <span>Rewards integrate with ecosystem growth</span>
+                    </li>
+                    <li>
+                        <div class="bullet-gold"></div>
+                        <span>Skill meets strategy</span>
+                    </li>
+                </ul>
+
+                <p class="hero__subtitle" style="margin: 32px 0; text-align: left; font-weight: 600; color: #fff;">
+                    Built to drive engagement. <br>
+                    Designed to expand utility.
                 </p>
 
                 <div class="hero__buttons">
-                    <a href="#" class="btn btn--primary">
-                        <i class="fa-solid fa-rocket"></i> Buy $MPIG
+                    <a href="#shooter-game" class="btn btn--primary">
+                        <i class="fa-solid fa-gamepad"></i> Launch Camp
                     </a>
                     <a href="community.html" class="btn btn--secondary">
-                        Join Community
+                        View Rankings
                     </a>
                 </div>
 
-                <div class="hero__ca">
-                    <i class="fa-solid fa-scroll text-gold"></i>
-                    <code id="ca-text">Ff7F96e7HntW5D9QH2bwDHPYZesF2gx7ACipSxxtpump</code>
-                    <button onclick="copyCA()" aria-label="Copy CA"><i class="fa-regular fa-copy"></i></button>
-                </div>
             </div>
         </div>
     </section>
+
+    <!-- <section id="shooter-game" class="section" style="background: var(--bg); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="game-terminal-wrap">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="terminal-title">BOUNTY SHOOTER V1.0</div>
+                </div>
+                
+                <div class="game-canvas-container" style="aspect-ratio: 16/9; background: #000; position: relative; overflow: hidden;">
+                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.8);">
+                        <p class="footer-muted" style="letter-spacing: 2px;">INITIALIZING COMBAT PROTOCOL...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
 <footer class="footer-strip">
     <div class="container footer-inner">
@@ -171,16 +191,6 @@
             actualIcon.className = "fa-solid fa-bars-staggered";
             document.body.style.overflow = '';
             document.removeEventListener('click', closeOnOutsideClick);
-        }
-
-        // Copy CA logic
-        function copyCA() {
-            const ca = "Ff7F96e7HntW5D9QH2bwDHPYZesF2gx7ACipSxxtpump";
-            navigator.clipboard.writeText(ca).then(() => {
-                const icon = document.querySelector('.hero__ca button i');
-                icon.className = "fa-solid fa-check text-green-400";
-                setTimeout(() => { icon.className = "fa-regular fa-copy"; }, 2000);
-            });
         }
     </script>
 </body>

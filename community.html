@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MARLBORO PIG | Smoke the Dips</title>
+    <title>Community | Join the MPIG Herd</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
+<body class="community-page">
 
-    <div id="mobile-overlay">
+        <div id="mobile-overlay">
         <button onclick="toggleMenu()" class="absolute top-8 right-8 text-white text-3xl md:hidden" style="background:none; border:none; cursor: pointer;">
             <i class="fa-solid fa-xmark"></i>
         </button>
@@ -57,41 +57,48 @@
     </div>
 </nav>
 
-    <section class="hero">
-        <img class="hero__bg" src="images/hero-16x9-mpig.png" alt="Marlboro Pig Hero" loading="eager">
+    <section class="hero hero--community">
+        <img class="hero__bg" src="images/community.png" alt="Join the MPIG Herd">
 
         <div class="hero__inner">
             <div class="hero__content">
-                <div class="hidden md:block mb-6">
-                    <div class="badge" style="display: inline-flex; gap: 10px; align-items: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); font-size: 13px; color: rgba(255,255,255,0.82);">
-                        <div class="brand-dot"></div>
-                        <span class="uppercase tracking-[0.3em] font-bold">Pressure is building</span>
-                    </div>
-                </div>
-
-                <h1 class="hero__title">
-                    The Future of Meme <br> 
-                    Utility Starts <span style="color: var(--gold); font-weight: 800;">Here.</span>
-                </h1>
+                <h1 class="hero__title">The Herd is <br> <span style="color: var(--gold);">Growing.</span></h1>
                 
-                <p class="hero__subtitle">
-                    $MPIG is building more than hype. We're building community, <br class="hidden md:block"> 
-                    game mechanics, and long-term Web3 presence.
+                <p class="hero__subtitle" style="margin-bottom: 32px;">
+                    More holders. More eyes. More smoke on the chart. <br class="hidden md:block">
+                    $MPIG is building organically on Solana. Still early. Still loading.
                 </p>
 
-                <div class="hero__buttons">
-                    <a href="#" class="btn btn--primary">
-                        <i class="fa-solid fa-rocket"></i> Buy $MPIG
+                <div class="community-grid">
+                    <a href="https://t.me/Marlboropig1" target="_blank" class="community-card">
+                        <i class="fa-brands fa-telegram community-icon"></i>
+                        <div class="community-info">
+                            <h3>Telegram</h3>
+                            <span>Join the Alpha Discussion</span>
+                        </div>
                     </a>
-                    <a href="community.html" class="btn btn--secondary">
-                        Join Community
+
+                    <a href="https://x.com/BZogovic23" target="_blank" class="community-card">
+                        <i class="fa-brands fa-x-twitter community-icon"></i>
+                        <div class="community-info">
+                            <h3>Twitter</h3>
+                            <span>Get Latest Updates & Insights</span>
+                        </div>
+                    </a>
+
+                    <a href="https://x.com/i/communities/2022971357244379465" target="_blank" class="community-card">
+                        <i class="fa-solid fa-users community-icon"></i>
+                        <div class="community-info">
+                            <h3>X Community</h3>
+                            <span>Connect with Strong Hands</span>
+                        </div>
                     </a>
                 </div>
 
-                <div class="hero__ca">
-                    <i class="fa-solid fa-scroll text-gold"></i>
-                    <code id="ca-text">Ff7F96e7HntW5D9QH2bwDHPYZesF2gx7ACipSxxtpump</code>
-                    <button onclick="copyCA()" aria-label="Copy CA"><i class="fa-regular fa-copy"></i></button>
+                <div class="hero__ca" style="margin-top: 40px;">
+                    <p style="font-family: monospace; font-size: 12px; letter-spacing: 1px; color: var(--gold);">
+                        You’re either early… or exit liquidity.
+                    </p>
                 </div>
             </div>
         </div>
@@ -171,16 +178,6 @@
             actualIcon.className = "fa-solid fa-bars-staggered";
             document.body.style.overflow = '';
             document.removeEventListener('click', closeOnOutsideClick);
-        }
-
-        // Copy CA logic
-        function copyCA() {
-            const ca = "Ff7F96e7HntW5D9QH2bwDHPYZesF2gx7ACipSxxtpump";
-            navigator.clipboard.writeText(ca).then(() => {
-                const icon = document.querySelector('.hero__ca button i');
-                icon.className = "fa-solid fa-check text-green-400";
-                setTimeout(() => { icon.className = "fa-regular fa-copy"; }, 2000);
-            });
         }
     </script>
 </body>
