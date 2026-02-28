@@ -163,29 +163,42 @@
 
 
 /* =========================
-   ABOUT PAGE MODIFIERS
+   ABOUT PAGE REFINEMENT
    ========================= */
 
-/* Left-align content for the About layout */
 .hero--about .hero__content {
     text-align: left;
-    margin-inline: 0; /* Remove auto centering */
+    margin-inline: 0;
     max-width: 640px;
 }
 
-.hero--about .hero__buttons {
-    justify-content: flex-start; /* Align buttons to left */
+.hero--about .hero__subtitle {
+    text-align: left;
+    margin-inline: 0;
+    line-height: 1.6;
 }
 
-/* Feature List Styling */
-.about-features {
+.about-features-container {
     margin: 32px 0;
     padding: 24px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-header {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.about-features {
+    list-style: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .about-features li {
@@ -193,49 +206,44 @@
     align-items: center;
     gap: 12px;
     font-size: 16px;
-    font-weight: 500;
     color: var(--text);
+    text-align: left;
 }
 
 .about-features i {
     color: var(--gold);
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .about-hook {
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(20px, 2.5vw, 28px);
-    font-weight: 700;
-    margin-top: 24px;
+    font-size: clamp(20px, 2.5vw, 26px);
+    margin: 24px 0 32px;
+    text-align: left;
 }
 
-/* Mobile: Revert to center for better readability on small screens */
-@media (max-width: 900px) {
-    .hero--about .hero__content {
-        text-align: center;
-        margin-inline: auto;
-    }
-    .hero--about .hero__buttons {
-        justify-content: center;
-    }
-    .about-features li {
-        justify-content: center;
-    }
+.hero--about .hero__buttons {
+    justify-content: flex-start;
+}
 
-    .hero::before {
-        background: 
-            linear-gradient(to bottom, rgba(7, 7, 11, 0.60) 0%, rgba(7, 7, 11, 0.85) 100%);
+/* Mobile Polish: Maintain Left Alignment */
+@media (max-width: 900px) {
+    .hero--about .hero__inner {
+        padding-top: 120px; /* Space for fixed nav */
     }
     
     .hero--about .hero__content {
-        background: rgba(7, 7, 11, 0.4);
-        backdrop-filter: blur(1px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: 30px 20px;
-        border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        max-width: 100%;
+        padding-left: 10px; /* Slight gutter for edges */
     }
 
+    .hero__title {
+        font-size: 40px;
+    }
+
+    .about-hook {
+        font-size: 22px;
+    }
 }
 
 /* =========================
